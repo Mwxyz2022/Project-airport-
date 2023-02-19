@@ -1,0 +1,95 @@
+@import '../variables.scss';
+
+.btn {
+    display: flex;
+    align-items: center;
+    width: 510px;
+    height: 60px;
+    border-radius: 60px 60px 0 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-white;
+}
+
+.active {
+    background-color: $color-white;
+    width: 610px;
+    color: $color-blue;
+}
+
+.optional {
+    padding-top: 20px;
+
+    .navigation {
+        display: flex;
+        width: 1120px;
+        background-color: $color-blue;
+        border-radius: 60px 60px 0 0;
+
+        .departures {
+            @extend .btn;
+
+            &__container {
+                margin-left: 270px;
+            }
+
+            &__icon {
+                width: 40px;
+                transform: rotate(348deg);
+
+                path {
+                    fill: $color-white;
+                }
+            }
+
+            &__title {
+                //
+                padding-left: 20px;
+            }
+        }
+
+        .departures.departures-active {
+            @extend .active;
+
+            .departures__icon {
+                path {
+                    fill: $color-blue;
+                }
+            }
+        }
+
+        .arrivals {
+            @extend .btn;
+            justify-content: flex-end;
+
+            &__container {
+                margin-right: 310px;
+            }
+
+            &__icon {
+                width: 40px;
+                transform: rotate(12deg);
+
+                path {
+                    fill: $color-white;
+                }
+            }
+
+            &__title {
+                padding-left: 20px;
+            }
+        }
+
+        .arrivals.arrivals-active {
+            @extend .active;
+
+            .arrivals__icon {
+                path {
+                    fill: $color-blue;
+                }
+            }
+        }
+    }
+}
