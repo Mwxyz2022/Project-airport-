@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 
 import '../styles/main/datenavigation.scss'
 
+import DateSelect from './DateSelect'
+
 const DateNavigation = () => {
     const { pathname } = useLocation()
-
     const departuresClass = pathname.includes('departures')
         ? 'departures departures-active'
         : 'departures'
@@ -45,26 +46,7 @@ const DateNavigation = () => {
                     </div>
                 </Link>
             </div>
-            <div className="calendar">
-                <div className="date__picker"></div>
-                <div className="date">
-                    <button className="day">
-                        <div className="day__num">20/08</div>
-                        <div className="day__title">yesterday</div>
-                        <div className="day__line"></div>
-                    </button>
-                    <button className="day">
-                        <div className="day__num">20/08</div>
-                        <div className="day__title">yesterday</div>
-                        <div className="day__line"></div>
-                    </button>
-                    <button className="day">
-                        <div className="day__num">20/08</div>
-                        <div className="day__title">yesterday</div>
-                        <div className="day__line"></div>
-                    </button>
-                </div>
-            </div>
+            <DateSelect />
         </section>
     )
 }

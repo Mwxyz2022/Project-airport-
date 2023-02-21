@@ -36,8 +36,8 @@ const Main = () => {
                     </Route>
                     {pathname !== '/' && <DateNavigation />}
 
-                    <Route path="/departures"></Route>
-                    <Route path="/arrivals"></Route>
+                    {/* <Route path="/departures"></Route>
+                    <Route path="/arrivals"></Route> */}
                 </div>
             </section>
         </main>
