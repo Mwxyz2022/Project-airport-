@@ -4,7 +4,7 @@ import { Route, useLocation } from 'react-router-dom'
 import FlightsNav from './FlightsNav'
 import DateNavigation from './DateNavigation'
 
-import '../styles/main/main.scss'
+import '../../styles/main/main.scss'
 
 const Main = () => {
     const { pathname } = useLocation()
