@@ -1,8 +1,13 @@
 const apiUrl = 'https://api.iev.aero/api/flights'
 
-export const fetchAirportData = () =>
-    fetch(`${apiUrl}/${today}`).then(response => {
-        if (response.ok) {
-            return response.json()
-        }
-    })
+export const fetchFlightsListData = date => {
+    console.log(date)
+
+    return fetch(`${apiUrl}/${date}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+        })
+        .then(res => res.body)
+}

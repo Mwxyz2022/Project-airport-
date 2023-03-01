@@ -1,4 +1,4 @@
-import { GET_FLIGHTS_LIST } from './flightsList.actions'
+import { GET_FLIGHTS_LIST } from './actions'
 
 const initialState = {
     flightsList: [],

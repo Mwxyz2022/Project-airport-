@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Route, useLocation } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import FlightsNav from '../main/flightnav/FlightsNav'
 import DateNavigation from './datenavigation/DateNavigation'
@@ -7,18 +8,21 @@ import FlightsTable from './flightstable/FlightsTable'
 
 import './main.scss'
 
-const Main = () => {
-    const { pathname, search } = useLocation()
+import * as flightsActions from '../../redux/actions'
+
+const Main = ({ flights, getFlightsList }) => {
+    const { pathname } = useLocation()
     const [searching, setSearching] = useState('')
 
     const onSearchTextToggle = event => {
         setSearching(event.target.value)
     }
 
-    console.log(useLocation.search)
+    console.log(flights)
 
     const onSearchTextHandler = event => {
         event.preventDefault()
+        getFlightsList('31-12-2020')
     }
 
     return (
@@ -57,4 +61,8 @@ const Main = () => {
     )
 }
 
-export default Main
+const mapDispatch = {
+    getFlightsList: flightsActions.getFlightsList,
+}
+
+export default connect(null, mapDispatch)(Main)

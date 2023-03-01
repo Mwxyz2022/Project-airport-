@@ -1,8 +1,6 @@
-const apiUrl = 'https://api.iev.aero/api/flights/11-01-2022'
+// import { createSelector } from 'reselect'
 
-// export const fetchAirportData = () =>
-//     fetch(`${apiUrl}/${today}`).then(response => {
-//         if (response.ok) {
-//             return response.json()
-//         }
-//     })
+export const flightListSelector = state => state.flights.flightsList
+
+export const depFlightListSelector = state => state.flights.flightsList.departure
+export const arrFlightListSelector = state => state.flights.flightsList.arrival

@@ -1,9 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import './flighttable.scss'
 
-const FlightsTable = () => {
-    console.log(1)
+import * as flightListSelector from '../../../redux/selectors'
+
+const FlightsTable = ({ depList, arrList }) => {
+    console.log(depList) //
+    console.log(arrList) //
+    //
 
     return (
         <table className="flytable">
@@ -19,54 +24,38 @@ const FlightsTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr className="flytable__line__flight">
-                    <th className="flytable__item terminal">
-                        <span className="flight-terminal">A</span>
-                    </th>
-                    <th className="flytable__item loctime">0:25</th>
-                    <th className="flytable__item destination">Cologne</th>
-                    <th className="flytable__item status">Landed 0:26</th>
-                    <th className="flytable__item airline">Wizz Air</th>
-                    <th className="flytable__item flightnum">W67308</th>
-                    <th className="flytable__item details">
-                        <a href="#" className="flight-details">
-                            Flight details
-                        </a>
-                    </th>
-                </tr>
-                <tr className="flytable__line__flight">
-                    <th className="flytable__item terminal">
-                        <span className="flight-terminal">A</span>
-                    </th>
-                    <th className="flytable__item loctime">0:25</th>
-                    <th className="flytable__item destination">Cologne</th>
-                    <th className="flytable__item status">Landed 0:26</th>
-                    <th className="flytable__item airline">Wizz Air</th>
-                    <th className="flytable__item flightnum">W67308</th>
-                    <th className="flytable__item details">
-                        <a href="#" className="flight-details">
-                            Flight details
-                        </a>
-                    </th>
-                </tr>
-                <tr className="flytable__line__flight">
-                    <th className="flytable__item terminal">
-                        <span className="flight-terminal">A</span>
-                    </th>
-                    <th className="flytable__item loctime">0:25</th>
-                    <th className="flytable__item destination">Cologne</th>
-                    <th className="flytable__item status">Landed 0:26</th>
-                    <th className="flytable__item airline">Wizz Air</th>
-                    <th className="flytable__item flightnum">W67308</th>
-                    <th className="flytable__item details">
-                        <a href="#" className="flight-details">
-                            Flight details
-                        </a>
-                    </th>
-                </tr>
+                {depList &&
+                    depList.map(flight => {
+                        console.log(flight)
+
+                        return (
+                            <tr className="flytable__line__flight" key={flight.ID}>
+                                <th className="flytable__item terminal">
+                                    <span className="flight-terminal">{flight.term}</span>
+                                </th>
+                                <th className="flytable__item loctime">0:25</th>
+                                <th className="flytable__item destination">Cologne</th>
+                                <th className="flytable__item status">Landed 0:26</th>
+                                <th className="flytable__item airline">Wizz Air</th>
+                                <th className="flytable__item flightnum">W67308</th>
+                                <th className="flytable__item details">
+                                    <a href="#" className="flight-details">
+                                        Flight details
+                                    </a>
+                                </th>
+                            </tr>
+                        )
+                    })}
             </tbody>
         </table>
     )
 }
 
-export default FlightsTable
+const mapDispatch = {}
+
+const mapState = state => ({
+    depList: flightListSelector.depFlightListSelector(state),
+    arrList: flightListSelector.arrFlightListSelector(state),
+})
+
+export default connect(mapState, mapDispatch)(FlightsTable)
