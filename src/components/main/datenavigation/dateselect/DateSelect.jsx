@@ -5,7 +5,7 @@ import moment from 'moment'
 import Calendar from 'react-calendar'
 
 import 'react-calendar/dist/Calendar.css'
-import '../../styles/main/dateselect.scss'
+import './dateselect.scss'
 
 moment.locale('en-gb')
 const momentSettings = {

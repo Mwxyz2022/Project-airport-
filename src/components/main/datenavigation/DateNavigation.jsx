@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-import '../../styles/main/datenavigation.scss'
+import './datenavigation.scss'
 
-import DateSelect from './DateSelect'
+import DateSelect from '../datenavigation/dateselect/DateSelect'
 
 const DateNavigation = () => {
     const { pathname } = useLocation()

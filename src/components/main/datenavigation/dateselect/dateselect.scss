@@ -1,7 +1,8 @@
-@import '../variables.scss';
+@import '../../../../styles/variables.scss';
 
 .calendar {
     position: relative;
+    z-index: 3;
     display: flex;
     padding-top: 20px;
     width: 100%;
